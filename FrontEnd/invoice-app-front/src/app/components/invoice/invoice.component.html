@@ -1,1 +1,57 @@
-<h1> Iniciando la factura</h1>
+
+<div>
+  <div>
+      <h2>Ejemplo Factura</h2>
+      <div>
+        <ul>
+          <li>
+              id: {{invoice.id}}
+          </li>
+          <li>
+            Nombre: {{invoice.name}}
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h3>Datos del Cliente</h3>
+        <ul>
+          <li>{{invoice.client.name}} {{invoice.client.lastname}}</li>
+          <li>{{invoice.client.address.country}} / {{invoice.client.address.city}}</li>
+          <li>{{invoice.client.address.street}} {{invoice.client.address.number}}</li>
+        </ul>
+      </div>
+      <div>
+        <h3>Datos de la empresa</h3>
+        <ul>
+          <li>{{invoice.company.name}}</li>
+          <li>{{invoice.company.fiscalNumber}}</li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>Detalle de la factura</h4>
+        <table>
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>Product</th>
+              <th>Price</th>
+              <th>Quantity</th>
+            </tr>
+          </thead>
+          <tbody>
+            @for (item of invoice.items; track $index){
+            <tr>
+              <td>{{item.id}}</td>
+              <td>{{item.product}}</td>
+              <td>{{item.price}}</td>
+              <td>{{item.quantity}}</td>
+
+            </tr>
+            }
+          </tbody>
+        </table>
+      </div>
+  </div>
+</div>
