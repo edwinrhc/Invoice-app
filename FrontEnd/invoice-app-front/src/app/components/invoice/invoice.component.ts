@@ -31,7 +31,7 @@ export class InvoiceComponent implements OnInit{
     }
 
   remoteItem(id: number): void {
-    this.invoice.items = this.invoice.items.filter(item => item.id !== id);
+    this.invoice = this.service.remove(id);
   }
 
 }
