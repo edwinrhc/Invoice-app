@@ -4,58 +4,20 @@
       <h2>Ejemplo Factura</h2>
     </div>
     <div class="card-body">
-      <div>
-        <ul class="list-group">
-          <li class="list-group-item">
-            id: {{ invoice.id }}
-          </li>
-          <li class="list-group-item">
-            Nombre: {{ invoice.name }}
-          </li>
-        </ul>
-      </div>
+        <app-invoice-view [id]="invoice.id" [name]="invoice.name"></app-invoice-view>
+
       <div class="row my-3">
         <div class="col">
-          <h3>Datos del Cliente</h3>
-          <ul class="list-group">
-            <li class="list-group-item active">{{ invoice.client.name }} {{ invoice.client.lastname }}</li>
-            <li class="list-group-item">{{ invoice.client.address.country }} / {{ invoice.client.address.city }}</li>
-            <li class="list-group-item">{{ invoice.client.address.street }} {{ invoice.client.address.number }}</li>
-          </ul>
+          <app-client-view [client]="invoice.client"></app-client-view>
         </div>
+
         <div class="col">
-          <h3>Datos de la empresa</h3>
-          <ul class="list-group">
-            <li class="list-group-item active">{{ invoice.company.name }}</li>
-            <li class="list-group-item">{{ invoice.company.fiscalNumber }}</li>
-          </ul>
+          <app-company-view [company]="invoice.company"></app-company-view>
         </div>
       </div>
 
-      <div>
-        <h4>Detalle de la factura</h4>
-        <table class="table table-striped table-hover">
-          <thead>
-          <tr>
-            <th>Id</th>
-            <th>Product</th>
-            <th>Price</th>
-            <th>Quantity</th>
-          </tr>
-          </thead>
-          <tbody>
-            @for (item of invoice.items; track $index) {
-              <tr>
-                <td>{{ item.id }}</td>
-                <td>{{ item.product }}</td>
-                <td>{{ item.price }}</td>
-                <td>{{ item.quantity }}</td>
+      <app-list-items [items]="invoice.items"></app-list-items>
 
-              </tr>
-            }
-          </tbody>
-        </table>
-      </div>
     </div>
   </div>
 </div>

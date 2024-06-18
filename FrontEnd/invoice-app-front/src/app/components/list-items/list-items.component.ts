@@ -1,11 +1,15 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
+import {Item} from "../../models/item";
+import {RowItemComponent} from "../row-item/row-item.component";
 
 @Component({
   selector: 'app-list-items',
   standalone: true,
-  imports: [],
+  imports: [RowItemComponent],
   templateUrl: './list-items.component.html'
 })
 export class ListItemsComponent {
+
+  @Input() items: Item[] = [];
 
 }
