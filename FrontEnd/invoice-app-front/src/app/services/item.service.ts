@@ -16,10 +16,7 @@ export class InvoiceService {
   }
 
   calculateTotal(){
-    let total = 0; // Se inicia
-    this.invoice.items.forEach(item => {
-      total += item.total();
-    });
-    return total;
+
+    return this.invoice.items.reduce((total, item) => total + (item.price * item.quantity), 0)
   }
 }

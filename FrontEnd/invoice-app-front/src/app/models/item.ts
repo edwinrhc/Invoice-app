@@ -5,7 +5,4 @@ export class Item {
   quantity!: number;
 
 
-  total(): number{
-    return (this.price * this.quantity);
-  }
 }
