@@ -1,0 +1,23 @@
+<form class="w-25">
+  <input name="product"
+         placeholder="Ingrese producto"
+         class="form-control m-3"
+         [(ngModel)]="item.product"
+  />
+
+  <input name="price"
+         placeholder="Ingrese precio"
+         class="form-control m-3"
+         [(ngModel)]="item.price"
+  />
+
+  <input name="quantity"
+         placeholder="Ingrese la cantidad"
+         class="form-control m-3"
+         [(ngModel)]="item.quantity"
+  />
+
+  <button class="btn btn-primary m-3">
+    Nuevo Item
+  </button>
+</form>
