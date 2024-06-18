@@ -11,6 +11,15 @@ export class InvoiceService {
 
 
   getInvoice():Invoice{
-    return this.invoice;
+    const total = this.calculateTotal()
+    return {... this.invoice, total: total};
+  }
+
+  calculateTotal(){
+    let total = 0; // Se inicia
+    this.invoice.items.forEach(item => {
+      total += item.total();
+    });
+    return total;
   }
 }
