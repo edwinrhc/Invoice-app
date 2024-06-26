@@ -1,23 +1,26 @@
-<form class="w-25">
+<form class="w-25" (ngSubmit)="onSubmit()" #itemForm="ngForm">
   <input name="product"
          placeholder="Ingrese producto"
          class="form-control m-3"
          [(ngModel)]="item.product"
-  />
+         required minlength="5"
+         #product="ngModel">
 
   <input name="price"
          placeholder="Ingrese precio"
          class="form-control m-3"
          [(ngModel)]="item.price"
-  />
+         required minlength="10"
+         #price="ngModel">
 
   <input name="quantity"
          placeholder="Ingrese la cantidad"
          class="form-control m-3"
          [(ngModel)]="item.quantity"
-  />
+         required minlength="1"
+         #quantity="ngModel">
 
-  <button class="btn btn-primary m-3" (click)="onSubmit()">
+  <button class="btn btn-primary m-3" [disabled]="itemForm.invalid">
     Nuevo Item
   </button>
 </form>
